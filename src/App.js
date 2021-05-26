@@ -3,12 +3,13 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Cards from './components/Cards/Cards';
-import styled from 'styled-components';
+import styled, { ThemeConsumer } from 'styled-components';
 import MainPage from './components/pages/MainPage/MainPage';
 import React from 'react';
 import NinjaPage from './components/pages/NinjaPage/NinjaPage';
 import UserPage from './components/pages/UserPage/UserPage';
 import { ChakraProvider } from "@chakra-ui/react"
+import axios from 'axios'
 
 const MainApp = styled.div`
   margin: 0;
@@ -19,10 +20,26 @@ const MainApp = styled.div`
   height: 100vh;
 `
 
-class App extends React.Component {
+const BASE_URL = 'https://labeninjas.herokuapp.com'
 
+export default class App extends React.Component {
+
+  
   state = {
     page: "main"
+  }
+
+  gerarCredencial = () => {
+    const body = {
+      name: 'paiva7'
+    }
+    axios.post('https://labeninjas.herokuapp.com/auth', body)
+    .then ((res) => {
+      console.log(res)
+    })
+    .catch ((err) =>{
+      console.log(err)
+    })
   }
 
   selectedPage = (page) =>{
@@ -51,4 +68,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+
