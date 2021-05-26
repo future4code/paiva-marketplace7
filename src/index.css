@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "edo";
+  src:url(./fonts/edo.ttf);
+  font-style: normal;
+  font-weight: 100;
+}
+
+h1 {
+  font-family: edo;
+  color: #7660C3;
+  font-size: 20px;
+  text-align: center;
+}
