@@ -26,7 +26,7 @@ export default class App extends React.Component {
 
   
   state = {
-    page: "ninja" //main
+    page: "main" //main
   }
 
   gerarCredencial = () => {
@@ -50,9 +50,9 @@ export default class App extends React.Component {
   renderPage = () =>{
     switch (this.state.page){
       case "ninja":
-        return <NinjaPage/>
+        return <NinjaPage choosePage={this.selectedPage}/>
       case "user":
-        return <UserPage/>
+        return <UserPage choosePage={this.selectedPage}/>
       default:
         return <MainPage choosePage={this.selectedPage}/>
     }
