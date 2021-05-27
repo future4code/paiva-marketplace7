@@ -20,7 +20,6 @@ const MainApp = styled.div`
   height: 100vh;
 `
 
-const BASE_URL = 'https://labeninjas.herokuapp.com'
 
 export default class App extends React.Component {
 
@@ -29,19 +28,7 @@ export default class App extends React.Component {
     page: "main"
   }
 
-  gerarCredencial = () => {
-    const body = {
-      name: 'paiva7'
-    }
-    axios.post('https://labeninjas.herokuapp.com/auth', body)
-    .then ((res) => {
-      console.log(res)
-    })
-    .catch ((err) =>{
-      console.log(err)
-    })
-  }
-
+ 
   selectedPage = (page) =>{
     this.setState({page: page})
   }
