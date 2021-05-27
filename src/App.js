@@ -26,7 +26,7 @@ export default class App extends React.Component {
 
   
   state = {
-    page: "main" //main
+    page: "main"
   }
 
   gerarCredencial = () => {

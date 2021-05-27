@@ -10,7 +10,7 @@ export default class UserPage extends React.Component{
     render(){
         return(
             <div>
-                <Header texto={'Nossos Serviços'} troca={this.ninjaPage}/>
+                <Header texto={'Seja um Ninja'} troca={this.ninjaPage}/>
                 User Page
             </div>
         )

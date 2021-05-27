@@ -11,7 +11,7 @@ export default class NinjaPage extends React.Component{
     render(){
         return(
             <div>
-                <Header texto={'Seja um Ninja'} troca={this.userPage}/>
+                <Header texto={'Nossos Serviços'} troca={this.userPage}/>
                 Ninja Page
             </div>
         )
