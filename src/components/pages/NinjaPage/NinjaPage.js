@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Style, { Main, NinjaCart, NinjaForm, Lista, ListaContainer, HeaderContainer } from './Styled'
+import Style, { Main, NinjaCart, NinjaForm, Lista, ListaContainer, HeaderContainer, FooterCont} from './Styled'
 import { baseStyle, Button, ChakraProvider } from "@chakra-ui/react"
 import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
 import UserPage from '../UserPage/UserPage';
 
 
@@ -117,50 +118,52 @@ export default class NinjaPage extends React.Component {
                 <Header texto={'Nossos Serviços'} troca={this.userPage}/>
                 </HeaderContainer>
                 <NinjaForm>
-                    <h1>Seja Um Ninja:</h1>
-                    <label>Nome:</label>
-                    <input
-                        value={this.state.title}
-                        onChange={this.onChangeTitle}
-                        type='text'
-                        placeholder='Nome do Serviço'
-                    />
-                    <label>Descrição:</label>
-                    <textarea
-                        value={this.state.description}
-                        onChange={this.onChangeDescription}
-                        placeholder='Descrição'
-                    />
-                    <label>Preço:</label>
-                    <input
-                        placeholder='Preço'
-                        value={this.state.price}
-                        onChange={this.onChangePrice}
-                    />
-                    <label>Tipo de pagamento:</label>
-                    <select
-                        placeholder='Tipo de pagamento'
-                        value={this.state.paymentMethods}
-                        onChange={this.onChangePayMethod}>
-                        <option value="cartao-credito">Cartão de crédito</option>
-                        <option value="cartao-debito">Cartão de débito</option>
-                        <option value="boleto-bancario">Boleto bancário</option>
-                        <option value="paypal">Paypal</option>
-                    </select>
-                    <input
-                        onChange={this.onChangeDueDate}
-                        value={this.state.dueDate}
-                        placeholder='Prazo de pagamento (AAAA-MM-DD)'
-                    />
-                    <ChakraProvider >
-                        <Button
-                            colorScheme="purple"
-                            variant="solid"
-                            onClick={this.criarJob}
-                        >Criar Anúncio!
-                            </Button>
-                    </ChakraProvider>
-                </NinjaForm>
+                    <div className="flexColumn">
+                        <h1>Seja Um Ninja:</h1>
+                        <label>Nome:</label>
+                        <input
+                            value={this.state.title}
+                            onChange={this.onChangeTitle}
+                            type='text'
+                            placeholder='Nome do Serviço'
+                        />
+                        <label>Descrição:</label>
+                        <textarea
+                            value={this.state.description}
+                            onChange={this.onChangeDescription}
+                            placeholder='Descrição'
+                        />
+                        <label>Preço:</label>
+                        <input
+                            placeholder='Preço'
+                            value={this.state.price}
+                            onChange={this.onChangePrice}
+                        />
+                        <label>Tipo de pagamento:</label>
+                        <select
+                            placeholder='Tipo de pagamento'
+                            value={this.state.paymentMethods}
+                            onChange={this.onChangePayMethod}>
+                            <option value="cartao-credito">Cartão de crédito</option>
+                            <option value="cartao-debito">Cartão de débito</option>
+                            <option value="boleto-bancario">Boleto bancário</option>
+                            <option value="paypal">Paypal</option>
+                        </select>
+                        <input
+                            onChange={this.onChangeDueDate}
+                            value={this.state.dueDate}
+                            placeholder='Prazo de pagamento (AAAA-MM-DD)'
+                        />
+                    
+                        <ChakraProvider >
+                            <Button
+                                colorScheme="purple"
+                                variant="solid"
+                                onClick={this.criarJob}
+                            >Criar Anúncio!
+                                </Button>
+                        </ChakraProvider>
+                    </div>
                 <NinjaCart>
                     <h2>Serviços Cadastrados</h2>
                     {this.state.nome.map((name) => {
@@ -180,5 +183,8 @@ export default class NinjaPage extends React.Component {
                     })}
 
                 </NinjaCart>
+                </NinjaForm>
+
+                <Footer />
             </Main>
         )}}

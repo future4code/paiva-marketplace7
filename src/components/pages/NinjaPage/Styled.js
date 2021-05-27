@@ -4,17 +4,28 @@ import styled from "styled-components";
 export const Main = styled.div`
     width:100%;
     display:flex;
+    flex-direction:column
 `
-
+export const HeaderContainer = styled.div`
+    position:fixed;
+    top:0;
+    width:100%;
+`
 export const NinjaForm = styled.div`
     margin-top:60px;
     padding:8px 24px 24px 24px;
+    //container do formulário de cadastro em NinjaForm como column
+    div.flexColumn{
+        display:flex;
+        flex-direction:column;
+    }
+    //---------Ao lado está o cart no mesmo container------------
+
     h1{
         font-size:100px;
     }
-    width:200%;
-    display:flex;
-    flex-direction:column;
+    width:100%;
+    display:flex; //o NinjaForm engloba, agr, o cart tbm e terá flex-direction:row
     background-color:#F5F4FC;
     label{
         margin:8px;
@@ -34,17 +45,12 @@ export const NinjaForm = styled.div`
         margin:8px;
         border-radius:10px;
     }
-`
-export const HeaderContainer = styled.div`
-    position:fixed;
-    top:0;
-    width:100%;
+    
 `
 
 export const NinjaCart = styled.div`
-margin-top:60px;
+    margin-top:60px;
     padding:4px;
-    width:100vw;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -70,4 +76,7 @@ export const ListaContainer = styled.div`
     button{
         background
     }
+`
+export const FooterCont = styled.div`
+    margin:0;
 `
