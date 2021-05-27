@@ -2,19 +2,17 @@ import styled from "styled-components";
 
 
 export const Main = styled.div`
-    width:100vw;
-    height:100vh;
+    width:100%;
     display:flex;
-    flex-direction:row;
-` 
+`
 
 export const NinjaForm = styled.div`
+    margin-top:60px;
     padding:8px 24px 24px 24px;
     h1{
         font-size:100px;
     }
     width:200%;
-    height:100%;
     display:flex;
     flex-direction:column;
     background-color:#F5F4FC;
@@ -36,12 +34,17 @@ export const NinjaForm = styled.div`
         margin:8px;
         border-radius:10px;
     }
-` 
+`
+export const HeaderContainer = styled.div`
+    position:fixed;
+    top:0;
+    width:100%;
+`
 
 export const NinjaCart = styled.div`
+margin-top:60px;
     padding:4px;
     width:100vw;
-    height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;

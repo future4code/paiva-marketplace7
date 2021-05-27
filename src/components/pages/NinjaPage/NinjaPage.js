@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import Style, { Main, NinjaCart, NinjaForm, Lista, ListaContainer } from './Styled'
+import Style, { Main, NinjaCart, NinjaForm, Lista, ListaContainer, HeaderContainer } from './Styled'
 import { baseStyle, Button, ChakraProvider } from "@chakra-ui/react"
+import Header from '../../Header/Header';
+import UserPage from '../UserPage/UserPage';
 
 
 
@@ -104,9 +106,16 @@ export default class NinjaPage extends React.Component {
             })
     }
 
+    userPage = () =>{
+        this.props.choosePage("user")
+    }
+
     render() {
         return (
             <Main>
+                <HeaderContainer>
+                <Header texto={'Nossos Serviços'} troca={this.userPage}/>
+                </HeaderContainer>
                 <NinjaForm>
                     <h1>Seja Um Ninja:</h1>
                     <label>Nome:</label>
@@ -172,9 +181,4 @@ export default class NinjaPage extends React.Component {
 
                 </NinjaCart>
             </Main>
-
-        )
-
-
-    }
-}
+        )}}
