@@ -25,7 +25,7 @@ export default class App extends React.Component {
 
   
   state = {
-    page: "user" //main
+    page: "main" 
   }
 
  
