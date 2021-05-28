@@ -39,7 +39,7 @@ export default function Informacoes(props) {
           </PopoverBody>
           <PopoverFooter>
             <Button
-              onClick={"#F5F4FC"}
+              // onClick={() => this.props.add(servico.id)}// this.props.add        testar pra ver se está funcionando - micheline
               bg="#7660C3"
               color="#FFFFFF"
               _hover={{ bg: "" }}

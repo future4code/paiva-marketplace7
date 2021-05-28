@@ -30,7 +30,7 @@ export default class MainPage extends React.Component{
                             colorScheme="purple" 
                             variant="solid"
                             onClick={this.selectNinjaPage}
-                            >Seja Ninja
+                            >Seja um Ninja
                             </Button>
                             <Button 
                             colorScheme="purple" 

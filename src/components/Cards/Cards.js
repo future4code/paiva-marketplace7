@@ -52,6 +52,7 @@ export default class CardProduto extends Component {
               item={this.props.product}
               preco={this.props.price}
               adicionarproduto={this.props.adicionarproduto}
+              // add={() => this.props.add()} // testar pra ver se está funcionando - micheline
             />
           </Box>
         </Box>

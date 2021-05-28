@@ -114,7 +114,7 @@ export default class NinjaPage extends React.Component {
         return (
             <Main>
                 <HeaderContainer>
-                <Header texto={'Nossos Serviços'} troca={this.userPage}/>
+                <Header texto={'Contrate um Ninja'} troca={this.userPage}/>
                 </HeaderContainer>
                 <NinjaForm>
                     <h1>Seja Um Ninja:</h1>
