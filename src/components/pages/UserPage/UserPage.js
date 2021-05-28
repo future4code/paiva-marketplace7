@@ -1,37 +1,96 @@
-import React from "react";
-import CardProduto from "../../Cards/Cards";
-import Header from "../../Header/Header";
-import styled from 'styled-components';
+import React from 'react';
+import Header from '../../Header/Header';
+import Footer from '../../Footer/Footer';
+import CardProduto from '../../Cards/Cards';
+import {Main, Filtro, Conteiner, Title, ContainerProducts, Foot} from './Styled';
+import { Container } from '@chakra-ui/layout';
 
-const ContainerProducts = styled.div`
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  width: 80vw;
-padding: 20px;
-margin-top: 10px;
-margin-left: 30px;
-`
 
-export default class UserPage extends React.Component {
-  ninjaPage = () => {
-    this.props.choosePage("ninja");
-  };
+export default class UserPage extends React.Component{
+    state={
+        produtos:[],
+        tipoService:"all",
+        min:0,
+        max:10000,
+        ordem:"min-max",
+        busca:""
 
-  render() {
-    return (
-      <div>
-        <Header texto={"Seja um Ninja"} troca={this.ninjaPage} />
-        <ContainerProducts>
-          <CardProduto />
-          <CardProduto />
-          <CardProduto />
-          <CardProduto />
-          <CardProduto />
-          <CardProduto />
-        </ContainerProducts>
-      </div>
-    );
-  }
+    }
+/*
+    getServices = ()=>{
+
+    }
+    Filter = ()=>{
+        
+    }
+    ordenar = ()=>{
+        
+    }
+    addAoCarrinho = ()=>{
+        
+    }
+    removerDoCarrinho = ()=>{
+        
+    }
+    cancelarTodosServices = ()=>{
+        
+    }
+    solicitarECancelarServices = ()=>{
+        
+    }
+
+*/
+    ninjaPage = () =>{
+        this.props.choosePage("ninja")
+    }
+
+    render(){
+        return(
+            <Main>
+                <Header texto={'Seja um Ninja'} troca={this.ninjaPage}/>
+                <Filtro>
+                    <input placeholder="Nome do serviço" />
+                    <select>
+                        <option>Tipo de serviço</option>
+                        <option>Todos</option>
+                    </select>
+                    <input placeholder="Valor mínimo" />
+                    <input placeholder="Valor máximo" />
+                    <select>
+                        <option>Ordenar por</option>
+                        <option>Menor preço</option>
+                        <option>Maior preço</option>
+                    </select>
+                </Filtro>
+                <Conteiner>
+                    <div>
+                        <Title>Lista de Serviços</Title>
+                        <hr />
+                        <br />
+                        <ContainerProducts>
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                        </ContainerProducts>
+                    </div>
+
+                    <div className="carrinho">
+                        <Title>Carrinho</Title>
+                        <hr />
+                        <br />
+                        <div></div>
+                        {/*AQUI VAI O CARRINHO*/}
+                    </div>
+                </Conteiner>
+                <Foot>
+                     <Footer />
+                </Foot>
+            </Main>
+        
+        )    
+
+    }
 }

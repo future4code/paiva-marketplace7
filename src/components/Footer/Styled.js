@@ -7,11 +7,8 @@ export const FooterMain = styled.div`
     flex: 1;
     justify-content:center;
     align-items:center;
-    margin: 0;
-    img:hover{
-       opacity:0.6;
-       cursor:pointer;
-    }
+    margin:0;
+    padding: 0;
 `
 export const FooterCenter = styled.div`
     display: flex;
@@ -24,5 +21,9 @@ export const FooterCenter = styled.div`
      color:white;
      font-size:0.7em;
      opacity:0.8;
+    }
+    img:hover{
+       opacity:0.6;
+       cursor:pointer;
     }
 `
