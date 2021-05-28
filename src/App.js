@@ -20,7 +20,6 @@ const MainApp = styled.div`
   height: 100vh;
 `
 
-
 export default class App extends React.Component {
 
   
@@ -48,9 +47,11 @@ export default class App extends React.Component {
   render(){
     const showPage = this.renderPage();
     return(
-      <ChakraProvider>
-        {showPage}
-      </ChakraProvider>
+
+        <ChakraProvider>
+         {showPage}
+        </ChakraProvider>
+
     );
   }
 }

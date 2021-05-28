@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
-import {Filtro, Conteiner, Title} from './Styled';
+import CardProduto from '../../Cards/Cards';
+import {Main, Filtro, Conteiner, Title, ContainerProducts, Foot} from './Styled';
 import { Container } from '@chakra-ui/layout';
 
 
@@ -45,7 +46,7 @@ export default class UserPage extends React.Component{
 
     render(){
         return(
-            <div>
+            <Main>
                 <Header texto={'Seja um Ninja'} troca={this.ninjaPage}/>
                 <Filtro>
                     <input placeholder="Nome do serviço" />
@@ -66,19 +67,28 @@ export default class UserPage extends React.Component{
                         <Title>Lista de Serviços</Title>
                         <hr />
                         <br />
-                        {/*AQUI VAI O CARDSERVICES*/}
+                        <ContainerProducts>
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                            <CardProduto />
+                        </ContainerProducts>
                     </div>
 
-                    <div>
+                    <div className="carrinho">
                         <Title>Carrinho</Title>
                         <hr />
                         <br />
+                        <div></div>
                         {/*AQUI VAI O CARRINHO*/}
                     </div>
                 </Conteiner>
-               
-                <Footer />
-            </div>
+                <Foot>
+                     <Footer />
+                </Foot>
+            </Main>
         
         )    
 
