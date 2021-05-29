@@ -51,7 +51,8 @@ export default class CardProduto extends Component {
               parcelamento={this.props.installments}
               item={this.props.product}
               preco={this.props.price}
-              adicionarproduto={this.props.adicionarproduto}
+              servicoId={this.props.servicoId}
+              contratar={this.props.contratar}
             />
           </Box>
         </Box>

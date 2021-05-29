@@ -1,5 +1,5 @@
-
 import React from "react";
+import UserPage from '../pages/UserPage/UserPage';
 import {
   Popover,
   PopoverTrigger,
@@ -32,20 +32,19 @@ export default function Informacoes(props) {
           <PopoverHeader>{props.categoria}</PopoverHeader>
           <PopoverCloseButton />
           <PopoverBody>
-            <p>Descrição: </p>
+            <p>Descrição:</p>
             <p>Preço:</p>
-            <p>Método de Pagamento: </p>
-            <p>Parcelamento: x</p>
+            <p>Método de Pagamento:</p>
+            <p>Parcelamento:</p>
           </PopoverBody>
           <PopoverFooter>
             <Button
-              onClick={"#F5F4FC"}
+              onClick={()=>props.contratar(props.servicoId)}
               bg="#7660C3"
               color="#FFFFFF"
               _hover={{ bg: "" }}
               marginTop="25px"
-            >
-              Adicionar ao Carrinho
+            >Contratar
             </Button>
           </PopoverFooter>
         </PopoverContent>

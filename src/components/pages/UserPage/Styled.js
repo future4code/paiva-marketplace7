@@ -33,7 +33,13 @@ export const Conteiner=styled.div`
     justify-content: space-between;
     align-items:center;
     .carrinho{
-        max-width:25.4vw;
+        width:25.4vw;
+    }
+    .listaContratados{
+        display:flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height:800px;
     }
 `
 export const Title=styled.p`
@@ -55,4 +61,18 @@ export const Foot=styled.div`
     bottom:0;
     left:0;
     width: 99vw;
+`
+export const Lista = styled.p`
+    padding:8px;
+
+`
+export const ListaContainer = styled.div`
+    display:flex;
+    justify-content:space-between;
+    padding:8px;
+    width:100%;
+    border-bottom:1px solid lightgray;
+    button{
+        background
+    }
 `
