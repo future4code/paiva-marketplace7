@@ -14,7 +14,7 @@ export default class CardProduto extends Component {
         boxShadow="2px 2px 5px #B2926C"
       >
         <Image
-          src={/*this.props.photos*/""}
+          src={this.props.photos}
           alt={this.props.alt}
           boxSize="100%"
           height="35vh"
@@ -36,7 +36,7 @@ export default class CardProduto extends Component {
             textAlign="center"
             color="purple"
           >
-            {/*this.props.name*/"Nome do Produto"}
+            {this.props.title}
           </Box>
 
           <Box textAlign="center" margin="2px 0">

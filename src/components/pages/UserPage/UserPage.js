@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from '../../Header/Header';
 import Footer from '../../Footer/Footer';
 import CardProduto from '../../Cards/Cards';
+import photo from './imgs/img.png';
 import {Main, Filtro, Conteiner, Title, ContainerProducts, Foot, Lista, ListaContainer} from './Styled';
 import { baseStyle, Button, ChakraProvider } from "@chakra-ui/react"
 import { Container } from '@chakra-ui/layout';
@@ -14,9 +15,9 @@ export default class UserPage extends React.Component{
         servicosContratados:[],
         tipoService:"all",
         min:0,
-        max:10000,
-        ordem:"min-max",
-        busca:""
+        max:1000000,
+        ordem:"maior",
+        buscaProduto:""
 
     }
     componentDidMount(){
@@ -30,8 +31,25 @@ export default class UserPage extends React.Component{
             }
         })
             .then((res) => {
-                console.log(res.data.jobs)
+              
+
                 this.setState({servicos: res.data.jobs })
+                //FILTRO
+                const listaOrdenada = this.state.servicos
+                .filter((produto) => this.state.max ? produto.price <= this.state.max : true)
+                .filter((produto) => this.state.min ? produto.price >= this.state.min : true)
+                .filter((produto) => this.state.buscaProduto ? produto.title.includes(this.state.buscaProduto) : true)
+                .sort((a, b) =>
+                    this.state.ordem === "menor" ? a.price - b.price : b.price - a.price
+                    );
+
+                //console.log(this.state.servicos)
+                //console.log(res.data.jobs)
+                // console.log("-----------------------",this.state.servicos)
+                // console.log("-----------------------",listaOrdenada)
+
+                this.setState({servicos: listaOrdenada })
+                console.log("-----------------------",this.state.servicos)
 
             })
             .catch((err) => {
@@ -86,42 +104,43 @@ export default class UserPage extends React.Component{
         this.setState({servicosContratados:listCopy})
     }
 
-    
-/*
-    }
-    Filter = ()=>{
-        
-    }
-    ordenar = ()=>{
-        
-    }
-    addAoCarrinho = ()=>{
-        
-    }
-    removerDoCarrinho = ()=>{
-        
-    }
-    cancelarTodosServices = ()=>{
-        
-    }
-    solicitarECancelarServices = ()=>{
-        
-    }
 
-*/
     ninjaPage = () =>{
         this.props.choosePage("ninja")
     }
+    //Começa o Filtro
+    onChangeMinimo = (event) => {
+        this.setState({ min: event.target.value })
+    }
+
+    onChangeMaximo = (event) => {
+        this.setState({ max: event.target.value })
+    }
+
+    onChangeBusca = (event) => {
+        this.setState({ buscaProduto: event.target.value })
+    }
+
+    ordena = (e) => {
+        this.setState({ ordem: e.target.value })
+        this.getServices()
+       // console.log(e.target.value)
+    }
+    // Fim do Filtro
+    Refresh = ()=>{this.getServices()}
+    
     render(){
+        // const ordenaListaFiltrada = this.ordenarListaFiltrada();
         const carregajobs= this.state.servicos.map((job)=>{
            return <CardProduto 
+                    photos={photo}
                     contratar={this.contratar}
                     servicoId={job.id}
                     price={job.price}
                     title={job.title}
                     description={job.description}
-                    paymentMethod={job.paymentMethod}
-                    installments={job.installments}
+                    paymentMethod={job.paymentMethods}
+                    installments={"12x"}
                     />
         })
         const servicosContratados=this.state.servicosContratados.map((name) => {
@@ -144,21 +163,28 @@ export default class UserPage extends React.Component{
             <Main>
                 <Header texto={'Seja um Ninja'} troca={this.ninjaPage}/>
                 <Filtro>
-                    <input placeholder="Nome do serviço" />
+                    <input placeholder="Nome do serviço" onChange={this.onChangeBusca}/>
                     <select>
                         <option>Tipo de serviço</option>
                         <option>Todos</option>
                     </select>
-                    <input placeholder="Valor mínimo" />
-                    <input placeholder="Valor máximo" />
-                    <select>
-                        <option>Ordenar por</option>
-                        <option>Menor preço</option>
-                        <option>Maior preço</option>
+                    <input placeholder="Valor mínimo" onChange={this.onChangeMinimo} />
+                    <input placeholder="Valor máximo" onChange={this.onChangeMaximo} />
+                    <Button
+                        colorScheme="purple"
+                        variant="solid"
+                        onClick={this.Refresh}
+                    >Ir
+                    </Button>
+
+                    <select onChange={this.ordena}>
+                        <option value="nothing">Ordenar por</option>
+                        <option value="maior">Maior preço</option>
+                        <option value="menor">Menor preço</option>
                     </select>
                 </Filtro>
                 <Conteiner>
-                    <div>
+                    <div className="cards">
                         <Title>Lista de Serviços</Title>
                         <hr />
                         <br />

@@ -32,14 +32,14 @@ export default function Informacoes(props) {
           <PopoverHeader>{props.categoria}</PopoverHeader>
           <PopoverCloseButton />
           <PopoverBody>
-            <p>Descrição:</p>
-            <p>Preço:</p>
-            <p>Método de Pagamento:</p>
-            <p>Parcelamento:</p>
+            <p>Descrição:{props.descricao}</p>
+            <p>Preço:{props.preco}</p>
+            <p>Método de Pagamento:{props.metododepagamento}</p>
+            <p>Parcelamento:{props.parcelamento}</p>
           </PopoverBody>
           <PopoverFooter>
             <Button
-              onClick={()=>props.contratar(props.servicoId)}
+              onClick={() => props.contratar(props.servicoId)}
               bg="#7660C3"
               color="#FFFFFF"
               _hover={{ bg: "" }}

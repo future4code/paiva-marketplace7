@@ -31,9 +31,12 @@ export const Conteiner=styled.div`
     padding:0;
     display:flex;
     justify-content: space-between;
-    align-items:center;
+    align-items:flex-start;
     .carrinho{
         width:25.4vw;
+    }
+    .cards{
+        min-height:800px;
     }
     .listaContratados{
         display:flex;
@@ -46,6 +49,7 @@ export const Title=styled.p`
     text-align:center;
     padding:6px;
 `
+
 export const ContainerProducts = styled.div`
     display: grid;
     grid-template-rows: 1fr;
