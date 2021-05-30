@@ -4,19 +4,22 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.3",
+    "@chakra-ui/system": "^1.6.7",
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "chakra-design-system": "^0.1.2",
     "framer-motion": "^4.1.17",
     "jss": "^10.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-jss": "8.0.0",
     "react-scripts": "^3.4.3",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "surge": "^0.23.0"
   },
   "scripts": {
     "start": "react-scripts start",

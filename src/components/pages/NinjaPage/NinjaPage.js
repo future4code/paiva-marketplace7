@@ -177,7 +177,7 @@ export default class NinjaPage extends React.Component {
                                     variant="solid"
                                     onClick={() => this.delJobs(name.id)}
                                 >X
-                            </Button>
+                                </Button>
                             </ListaContainer>
                         )
                     })}
